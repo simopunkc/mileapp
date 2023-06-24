@@ -16,6 +16,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, { customC
 app.use((req, res) => {
   res.status(404).json({
     status: false,
+    statusCode: 404,
     message: 'invalid route',
   });
 })
