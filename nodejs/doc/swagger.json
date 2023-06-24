@@ -35,6 +35,9 @@
         "description": "",
         "parameters": [],
         "responses": {
+          "422": {
+            "description": "Unprocessable Entity"
+          },
           "500": {
             "description": "Internal Server Error",
             "content": {
@@ -72,6 +75,9 @@
           }
         ],
         "responses": {
+          "422": {
+            "description": "Unprocessable Entity"
+          },
           "500": {
             "description": "Internal Server Error",
             "content": {
@@ -97,6 +103,9 @@
           }
         ],
         "responses": {
+          "422": {
+            "description": "Unprocessable Entity"
+          },
           "500": {
             "description": "Internal Server Error",
             "content": {
@@ -132,6 +141,9 @@
           }
         ],
         "responses": {
+          "422": {
+            "description": "Unprocessable Entity"
+          },
           "500": {
             "description": "Internal Server Error",
             "content": {
@@ -176,6 +188,9 @@
               }
             },
             "description": "OK"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           },
           "500": {
             "description": "Internal Server Error",

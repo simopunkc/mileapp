@@ -6,10 +6,10 @@ make sure docker compose is installed. after that run bash script with below com
 ./start-server.sh
 ```
 
-navigate to the API documentation page using the endpoint below
+navigate to the API documentation page using the URL below
 
 ```
-/api-docs
+http://localhost:3000/api-docs
 ```
 
 run the below command if you want to stop the server
