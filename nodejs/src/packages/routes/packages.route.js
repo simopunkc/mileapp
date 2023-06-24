@@ -15,10 +15,10 @@ const {
 } = require('../handler/packages.handler');
 
 router.get('/', getListPackages);
-router.get('/:id', middlewareValidatePackageId, getSinglePackage);
-router.post('/', middlewareValidatePackageCreate, createSinglePackage);
-router.put('/:id', middlewareValidatePackageUpdate, replaceSinglePackage);
-router.patch('/:id', middlewareValidatePackageUpdate, updateSinglePackage);
-router.delete('/:id', middlewareValidatePackageId, removeSinglePackage);
+router.get('/:id', middlewareValidatePackageId(), getSinglePackage);
+router.post('/', middlewareValidatePackageCreate(), createSinglePackage);
+router.put('/:id', middlewareValidatePackageUpdate(), replaceSinglePackage);
+router.patch('/:id', middlewareValidatePackageUpdate(), updateSinglePackage);
+router.delete('/:id', middlewareValidatePackageId(), removeSinglePackage);
 
 module.exports = router;

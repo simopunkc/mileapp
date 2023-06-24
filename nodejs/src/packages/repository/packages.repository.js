@@ -21,9 +21,7 @@ module.exports = (database) => ({
   },
   createSinglePackage: (objectNew) => {
     return new Promise((resolve, reject) => {
-      database.create({
-        value: objectNew,
-      }).then(res => {
+      database.create(objectNew).then(res => {
         resolve(res);
       }).catch(err => {
         reject(err);
@@ -34,9 +32,7 @@ module.exports = (database) => ({
     return new Promise((resolve, reject) => {
       database.replaceOne({
         _id: objectId,
-      }, {
-        value: objectReplacement,
-      }).then(res => {
+      }, objectReplacement).then(res => {
         resolve(res);
       }).catch(err => {
         reject(err);
@@ -44,13 +40,11 @@ module.exports = (database) => ({
     });
   },
   updateSinglePackage: (objectId, objectUpdate) => {
+    objectUpdate.updated_at = new Date();
     return new Promise((resolve, reject) => {
       database.updateOne({
         _id: objectId,
-      }, {
-        value: objectUpdate,
-        updatedAt: Date.now(),
-      }).then(res => {
+      }, objectUpdate).then(res => {
         resolve(res);
       }).catch(err => {
         reject(err);
