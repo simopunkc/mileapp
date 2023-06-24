@@ -1,0 +1,55 @@
+version: "3.9"
+
+services:
+  mongo1:
+    container_name: mongo1
+    image: mongo:5.0
+    volumes:
+      - ./mongodb/init-mongodb.sh:/scripts/init-mongodb.sh
+    expose:
+      - 27017
+    restart: always
+    command: mongod --replSet dbrs
+    networks:
+      clusternetwork:
+        ipv4_address: 172.16.0.2
+  mongo2:
+    container_name: mongo2
+    image: mongo:5.0
+    expose:
+      - 27017
+    restart: always
+    command: mongod --replSet dbrs
+    networks:
+      clusternetwork:
+        ipv4_address: 172.16.0.3
+  mongo3:
+    container_name: mongo3
+    image: mongo:5.0
+    expose:
+      - 27017
+    restart: always
+    command: mongod --replSet dbrs
+    networks:
+      clusternetwork:
+        ipv4_address: 172.16.0.4
+  be-nodejs:
+    container_name: mileapp-be-nodejs
+    build:
+      context: .
+      dockerfile: be-nodejs.Dockerfile
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+    networks:
+      clusternetwork:
+        ipv4_address: 172.16.0.14
+networks:
+  clusternetwork:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.0.0/24

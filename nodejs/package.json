@@ -1,0 +1,28 @@
+{
+  "scripts": {
+    "start": "node index.js dotenv_config_path=./.env",
+    "dev": "nodemon index.js dotenv_config_path=./.env",
+    "test": "jest --runInBand --detectOpenHandles --watchAll --coverage",
+    "lint": "eslint ./",
+    "doc": "node doc/swagger.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.3.0",
+    "sinon": "^15.2.0",
+    "swagger-autogen": "^2.23.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3"
+  },
+  "name": "mileapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.43.0",
+    "jest": "^29.5.0",
+    "nodemon": "^2.0.22"
+  }
+}

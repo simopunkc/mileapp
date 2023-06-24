@@ -1,0 +1,630 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Mileapp",
+    "description": ""
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/packages/"
+    },
+    {
+      "url": "https://localhost:3000/packages/"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePackages"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePackages"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePackages"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletePackages"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CreatePackages": {
+        "type": "object",
+        "properties": {
+          "transaction_id": {
+            "type": "string",
+            "example": "d0090c40-539f-479a-8274-899b9970bddc"
+          },
+          "customer_name": {
+            "type": "string",
+            "example": "PT. AMARA PRIMATIGA"
+          },
+          "customer_code": {
+            "type": "string",
+            "example": "1678593"
+          },
+          "transaction_amount": {
+            "type": "string",
+            "example": "70700"
+          },
+          "transaction_discount": {
+            "type": "string",
+            "example": "0"
+          },
+          "transaction_additional_field": {
+            "type": "string",
+            "example": ""
+          },
+          "transaction_payment_type": {
+            "type": "string",
+            "example": "29"
+          },
+          "transaction_state": {
+            "type": "string",
+            "example": "PAID"
+          },
+          "transaction_code": {
+            "type": "string",
+            "example": "CGKFT20200715121"
+          },
+          "transaction_order": {
+            "type": "number",
+            "example": 121
+          },
+          "location_id": {
+            "type": "string",
+            "example": "5cecb20b6c49615b174c3e74"
+          },
+          "organization_id": {
+            "type": "number",
+            "example": 6
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2020-07-15T11:11:12+0700"
+          },
+          "updated_at": {
+            "type": "string",
+            "example": "2020-07-15T11:11:22+0700"
+          },
+          "transaction_payment_type_name": {
+            "type": "string",
+            "example": "Invoice"
+          },
+          "transaction_cash_amount": {
+            "type": "number",
+            "example": 0
+          },
+          "transaction_cash_change": {
+            "type": "number",
+            "example": 0
+          },
+          "customer_attribute": {
+            "type": "object",
+            "properties": {
+              "Nama_Sales": {
+                "type": "string",
+                "example": "Radit Fitrawikarsa"
+              },
+              "TOP": {
+                "type": "string",
+                "example": "14 Hari"
+              },
+              "Jenis_Pelanggan": {
+                "type": "string",
+                "example": "B2B"
+              }
+            }
+          },
+          "connote": {
+            "type": "object",
+            "properties": {
+              "connote_id": {
+                "type": "string",
+                "example": "f70670b1-c3ef-4caf-bc4f-eefa702092ed"
+              },
+              "connote_number": {
+                "type": "number",
+                "example": 1
+              },
+              "connote_service": {
+                "type": "string",
+                "example": "ECO"
+              },
+              "connote_service_price": {
+                "type": "number",
+                "example": 70700
+              },
+              "connote_amount": {
+                "type": "number",
+                "example": 70700
+              },
+              "connote_code": {
+                "type": "string",
+                "example": "AWB00100209082020"
+              },
+              "connote_booking_code": {
+                "type": "string",
+                "example": ""
+              },
+              "connote_order": {
+                "type": "number",
+                "example": 326931
+              },
+              "connote_state": {
+                "type": "string",
+                "example": "PAID"
+              },
+              "connote_state_id": {
+                "type": "number",
+                "example": 2
+              },
+              "zone_code_from": {
+                "type": "string",
+                "example": "CGKFT"
+              },
+              "zone_code_to": {
+                "type": "string",
+                "example": "SMG"
+              },
+              "surcharge_amount": {},
+              "transaction_id": {
+                "type": "string",
+                "example": "d0090c40-539f-479a-8274-899b9970bddc"
+              },
+              "actual_weight": {
+                "type": "number",
+                "example": 20
+              },
+              "volume_weight": {
+                "type": "number",
+                "example": 0
+              },
+              "chargeable_weight": {
+                "type": "number",
+                "example": 20
+              },
+              "created_at": {
+                "type": "string",
+                "example": "2020-07-15T11:11:12+0700"
+              },
+              "updated_at": {
+                "type": "string",
+                "example": "2020-07-15T11:11:22+0700"
+              },
+              "organization_id": {
+                "type": "number",
+                "example": 6
+              },
+              "location_id": {
+                "type": "string",
+                "example": "5cecb20b6c49615b174c3e74"
+              },
+              "connote_total_package": {
+                "type": "string",
+                "example": "3"
+              },
+              "connote_surcharge_amount": {
+                "type": "string",
+                "example": "0"
+              },
+              "connote_sla_day": {
+                "type": "string",
+                "example": "4"
+              },
+              "location_name": {
+                "type": "string",
+                "example": "Hub Jakarta Selatan"
+              },
+              "location_type": {
+                "type": "string",
+                "example": "HUB"
+              },
+              "source_tariff_db": {
+                "type": "string",
+                "example": "tariff_customers"
+              },
+              "id_source_tariff": {
+                "type": "string",
+                "example": "1576868"
+              },
+              "pod": {},
+              "history": {
+                "type": "array",
+                "example": [],
+                "items": {}
+              }
+            }
+          },
+          "connote_id": {
+            "type": "string",
+            "example": "f70670b1-c3ef-4caf-bc4f-eefa702092ed"
+          },
+          "origin_data": {
+            "type": "object",
+            "properties": {
+              "customer_name": {
+                "type": "string",
+                "example": "PT. NARA OKA PRAKARSA"
+              },
+              "customer_address": {
+                "type": "string",
+                "example": "JL. KH. AHMAD DAHLAN NO. 100, SEMARANG TENGAH 12420"
+              },
+              "customer_email": {
+                "type": "string",
+                "example": "info@naraoka.co.id"
+              },
+              "customer_phone": {
+                "type": "string",
+                "example": "024-1234567"
+              },
+              "customer_address_detail": {},
+              "customer_zip_code": {
+                "type": "string",
+                "example": "12420"
+              },
+              "zone_code": {
+                "type": "string",
+                "example": "CGKFT"
+              },
+              "organization_id": {
+                "type": "number",
+                "example": 6
+              },
+              "location_id": {
+                "type": "string",
+                "example": "5cecb20b6c49615b174c3e74"
+              }
+            }
+          },
+          "destination_data": {
+            "type": "object",
+            "properties": {
+              "customer_name": {
+                "type": "string",
+                "example": "PT AMARIS HOTEL SIMPANG LIMA"
+              },
+              "customer_address": {
+                "type": "string",
+                "example": "JL. KH. AHMAD DAHLAN NO. 01, SEMARANG TENGAH"
+              },
+              "customer_email": {},
+              "customer_phone": {
+                "type": "string",
+                "example": "0248453499"
+              },
+              "customer_address_detail": {
+                "type": "string",
+                "example": "KOTA SEMARANG SEMARANG TENGAH KARANGKIDUL"
+              },
+              "customer_zip_code": {
+                "type": "string",
+                "example": "50241"
+              },
+              "zone_code": {
+                "type": "string",
+                "example": "SMG"
+              },
+              "organization_id": {
+                "type": "number",
+                "example": 6
+              },
+              "location_id": {
+                "type": "string",
+                "example": "5cecb20b6c49615b174c3e74"
+              }
+            }
+          },
+          "koli_data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "koli_length": {
+                  "type": "number",
+                  "example": 0
+                },
+                "awb_url": {
+                  "type": "string",
+                  "example": "https://tracking.mile.app/label/AWB00100209082020.3"
+                },
+                "created_at": {
+                  "type": "string",
+                  "example": "2020-07-15 11:11:13"
+                },
+                "koli_chargeable_weight": {
+                  "type": "number",
+                  "example": 2
+                },
+                "koli_width": {
+                  "type": "number",
+                  "example": 0
+                },
+                "koli_surcharge": {
+                  "type": "array",
+                  "example": [],
+                  "items": {}
+                },
+                "koli_height": {
+                  "type": "number",
+                  "example": 0
+                },
+                "updated_at": {
+                  "type": "string",
+                  "example": "2020-07-15 11:11:13"
+                },
+                "koli_description": {
+                  "type": "string",
+                  "example": "LID HOT CUP"
+                },
+                "koli_formula_id": {},
+                "connote_id": {
+                  "type": "string",
+                  "example": "f70670b1-c3ef-4caf-bc4f-eefa702092ed"
+                },
+                "koli_volume": {
+                  "type": "number",
+                  "example": 0
+                },
+                "koli_weight": {
+                  "type": "number",
+                  "example": 2
+                },
+                "koli_id": {
+                  "type": "string",
+                  "example": "2937bdbf-315e-4c5e-b139-fd39a3dfd15f"
+                },
+                "koli_custom_field": {
+                  "type": "object",
+                  "properties": {
+                    "awb_sicepat": {},
+                    "harga_barang": {}
+                  }
+                },
+                "koli_code": {
+                  "type": "string",
+                  "example": "AWB00100209082020.3"
+                }
+              }
+            }
+          },
+          "custom_field": {
+            "type": "object",
+            "properties": {
+              "catatan_tambahan": {
+                "type": "string",
+                "example": "JANGAN DI BANTING / DI TINDIH"
+              }
+            }
+          },
+          "currentLocation": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "example": "Hub Jakarta Selatan"
+              },
+              "code": {
+                "type": "string",
+                "example": "JKTS01"
+              },
+              "type": {
+                "type": "string",
+                "example": "Agent"
+              }
+            }
+          }
+        }
+      },
+      "DeletePackages": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "boolean",
+            "example": true
+          },
+          "statusCode": {
+            "type": "number",
+            "example": 200
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "acknowledged": {
+                "type": "boolean",
+                "example": true
+              },
+              "deletedCount": {
+                "type": "number",
+                "example": 1
+              }
+            }
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "boolean",
+            "example": false
+          },
+          "statusCode": {
+            "type": "number",
+            "example": 500
+          },
+          "error": {
+            "type": "string",
+            "example": "Error message"
+          }
+        }
+      }
+    }
+  }
+}
