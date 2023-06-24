@@ -291,8 +291,8 @@ module.exports = (mongo) => {
           required: true,
         },
         created_at: {
-          type: Date,
-          default: new Date(),
+          type: String,
+          required: true,
         },
         koli_chargeable_weight: {
           type: Number,
@@ -310,8 +310,8 @@ module.exports = (mongo) => {
           required: true,
         },
         updated_at: {
-          type: Date,
-          default: new Date(),
+          type: String,
+          required: true,
         },
         koli_description: {
           type: String,
